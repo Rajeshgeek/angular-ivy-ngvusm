@@ -1,0 +1,52 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+
+<div>
+  show array in tabular form, make row background age above 28 make an hover of
+  Row where is a less than 28 while hoving row bg black and text color should be
+  white when mail Gmail should be g as action
+  <div>An extra col Show Mail to navigate respective .com</div>
+  when gmail the color of row font color is red y - blue h - yellow p - green
+</div>
+
+<div>
+  <div>
+    <table class="hoverTable">
+      <thead>
+        <tr>
+          <th scope="col">Emp ID</th>
+          <th scope="col">personName</th>
+          <th scope="col">FirstName</th>
+          <th scope="col">LastName</th>
+          <th scope="col">Age</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="r" *ngFor="let data of personarray">
+          <th scope="row" class="r">{{ data.empid }}</th>
+          <td>{{ data.personName }}</td>
+          <td>{{ data.firstName }}</td>
+          <td>{{ data.lastName }}</td>
+          <td
+            [ngStyle]="{
+              'background-color': data.age > 28 ? 'white' : 'black',
+              color: data.age > 28 ? 'black' : 'white'
+            }"
+          >
+            {{ data.age }}
+          </td>
+          <td [ngStyle]="{ color: getColor(data.email) }">{{ data.email }}</td>
+          <td>
+            <button>
+              <a target="_blank" href="mailto:{{ data.email }}">{{
+                data.email.split('@')[1].split('.')[0].charAt(0)
+              }}</a>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
